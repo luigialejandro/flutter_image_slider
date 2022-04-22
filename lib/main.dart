@@ -55,13 +55,13 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        leading: Icon(Icons.menu, color: Colors.white),
+        leading: Icon(Icons.menu, color: Colors.black),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
       body: Stack(
         children: [
-          Container(
+          /*Container(
             height: MediaQuery.of(context).size.height * 0.75,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
@@ -69,23 +69,26 @@ class _MyHomePageState extends State<MyHomePage> {
                     image:
                         AssetImage('assets/images/rounded_backgroundsat.png'),
                     fit: BoxFit.fill)),
-          ),
+          ),*/
           Container(
             height: MediaQuery.of(context).size.height * 0.75,
-            child: CarouselSlider.builder(
-              itemCount: SATimages.length,
-              itemBuilder: (context, index, realIndex) {
-                final SATimage = SATimages[index];
-                return buildImage(SATimage, index);
-              },
-              options: CarouselOptions(
-                //height: 515,
-                height: 300,
-                //viewportFraction: 1,
-                autoPlay: true,
-                enlargeCenterPage: true,
-                //enlargeStrategy: CenterPageEnlargeStrategy.height,
-                //autoPlayInterval: Duration(seconds: 3),
+            child: Padding(
+              padding: EdgeInsets.only(top: 65),
+              child: CarouselSlider.builder(
+                itemCount: SATimages.length,
+                itemBuilder: (context, index, realIndex) {
+                  final SATimage = SATimages[index];
+                  return buildImage(SATimage, index);
+                },
+                options: CarouselOptions(
+                  height: MediaQuery.of(context).size.height * 0.75,
+                  //height: 300,
+                  //viewportFraction: 1,
+                  autoPlay: true,
+                  enlargeCenterPage: true,
+                  //enlargeStrategy: CenterPageEnlargeStrategy.height,
+                  //autoPlayInterval: Duration(seconds: 3),
+                ),
               ),
             ),
           ),
